@@ -1,0 +1,62 @@
+body {
+	background-image: url(/images/soil.jpg);
+	background-repeat: no-repeat;
+}
+
+/*Navbar Main Font Color*/
+ul.nav.navbar-nav li a {
+	color: #FFFFFF;
+}
+
+/*Navbar Dropdown menu font color*/
+.navbar-default .navbar-nav .dropdown-menu li a {
+    color:#529751;
+  }
+
+ /*Navbar Dropdown menu font color*/
+ul.nav.navbar-nav li a:hover {
+    color:#FFFFFF;
+    background-color: #7FBE62;
+  }
+
+/*Navbar background color*/
+.navbar-default {
+	background-color: #529751;
+	border: none;
+	border-radius: 0px;
+}
+
+/*Navbar logo fit in navbar*/
+.navbar-brand {
+	padding: 0px;
+	margin: 0px;
+}
+
+/*Navbar brand image*/
+.brand-img {
+	height: 100%;
+	content: url(/images/logo-seul-fond-vert.jpg);
+}
+
+/*.col-md-2 {
+	border: solid grey 1px;
+	background-color: rgba(255, 255, 255, 0.5)
+
+}.col-md-8 {
+	border: solid grey 1px;
+	background-color: rgba(255, 255, 255, 0.5);
+}*/
+
+/*White transparent container*/
+.container {
+	border: solid grey 1px;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 1em;
+}
+
+/*Cocoon advert*/
+.col-md-2 .row img {
+	max-width: 190px;
+	margin-left: 0px;
+	border: 1px grey solid;
+}
