@@ -1,6 +1,10 @@
 body {
 	background-image: url(/images/soil.jpg);
 	background-repeat: no-repeat;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
 }
 
 /*Navbar Main Font Color*/
@@ -38,20 +42,19 @@ ul.nav.navbar-nav li a:hover {
 	content: url(/images/logo-seul-fond-vert.jpg);
 }
 
-/*.col-md-2 {
-	border: solid grey 1px;
-	background-color: rgba(255, 255, 255, 0.5)
 
-}.col-md-8 {
-	border: solid grey 1px;
-	background-color: rgba(255, 255, 255, 0.5);
-}*/
+
+div.col-md-8 {
+	position: relative;
+	height: 100%;
+}
 
 /*White transparent container*/
 .container {
 	border: solid grey 1px;
 	background-color: rgba(255, 255, 255, 0.5);
 	padding: 1em;
+	box-shadow: 0px 10px 30px black;
 }
 
 /*Cocoon advert*/

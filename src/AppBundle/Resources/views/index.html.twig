@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="css/maps.css"><!--Google Maps stylesheet-->
+{% endblock %}
 
 {% block body %}
 
@@ -11,16 +13,30 @@
     </div>
     
     <div class="col-md-8">
-        <div class="row">TEXT 2</div>
+        <div class="row"><div id="map"></div></div> <!--Google Maps DOM Element-->
     </div>
     
-    <div class="col-md-2">
+    <div class="col-md-2"> TEXT 3
         <div class="row">
 
         </div>
     </div>
 
 </div>
+
+<!--Google Map Script-->
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 48, lng: 2},
+          zoom: 2,
+          mapTypeId: 'satellite'
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXuwsvP_5JVA6fogMEKKPxB4NOf3ZaFOk&callback=initMap"
+    async defer></script>
 
 {% endblock %}
 
