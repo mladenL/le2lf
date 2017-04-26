@@ -1,3 +1,7 @@
+m_lmy_user:
+    resource: "@MLmyUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
