@@ -1,0 +1,40 @@
+
+{# src/ML/PlatformBundle/Resources/views/Advert/index.html.twig #}
+{#
+{% extends "MLPlatformBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body %}
+Inscrivez-vous pour faire partie du réseau d'échange et de dons de fruits, légumes et autres produits de l'Agriculture paysanne ou amateur, dans votre région ! Vous avez un pommier ? Mais vous ne pouvez pas ou ne souhaitez faire le travail de récolte ? Ne gâchons pas : en vous inscrivant vous pouvez permettre à quelqu'un de récupérer ce que la terre a fait pousser ! C'est cela l'Esprit de la Fôret ;)
+{% endblock %}
+
+#}
+
+{# src/ML/PlatformBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "MLPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block mlplatform_body %}
+
+  <h2>Liste des annonces</h2>
+
+  <ul>
+    {% for advert in listAdverts %}
+      <li>
+        <a href="{{ path('ml_platform_view', {'id': advert.id}) }}">
+          {{ advert.title }}
+        </a>
+        par {{ advert.author }},
+        le {{ advert.date|date('d/m/Y') }}
+      </li>
+    {% else %}
+      <li>Pas (encore !) d'annonces</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

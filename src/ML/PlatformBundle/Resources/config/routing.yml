@@ -1,0 +1,50 @@
+# src/ML/PlatformBundle/Resources/config/routing.yml
+
+#ACCUEIL
+ml_platform_home:
+    path:      /{page}
+    defaults:
+        _controller: MLPlatformBundle:Advert:index
+        page:        1
+    requirements:
+        page: \d*
+
+#RECHERCHE ANNONCE    
+ml_platform_view:
+    path:      /advert/{id}
+    defaults:
+        _controller: MLPlatformBundle:Advert:view
+    requirements:
+        id: \d+
+
+#AJOUT ANNONCE
+ml_platform_add:
+    path:      /add
+    defaults:
+        _controller: MLPlatformBundle:Advert:add
+
+#MODIFIER ANNONCE
+ml_platform_edit:
+    path:      /edit/{id}
+    defaults:
+        _controller: MLPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+#EFFACER ANNONCE
+ml_platform_delete:
+    path:      /delete/{id}
+    defaults:
+        _controller: MLPlatformBundle:Advert:delete
+    requirements:
+        id: \d+
+
+#ANNONCES PAR CATEGORIES
+ml_platform_view_slug:
+    path:      /platform/{year}/{slug}.{format}
+    defaults:
+        _controller: MLPlatformBundle:Advert:viewSlug
+        format:      html
+    requirements:
+        year:   \d{4}
+        format: html|xml
