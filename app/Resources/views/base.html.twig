@@ -1,62 +1,99 @@
-{# app/Resources/views/layout.html.twig #}
-
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+            <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
 
-  <title>{% block title %}ML Plateforme{% endblock %}</title>
-
-  {% block stylesheets %}
-    {# On charge le CSS de bootstrap depuis le site directement #}
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  {% endblock %}
-</head>
-
-<body>
-  <div class="container">
-    <div id="header" class="jumbotron">
-      <h1>Plateforme d'annonces</h1>
-      <p>
-        Ce projet est créé par Mladen
-      </p>
-      <p>
-        <a class="btn btn-primary btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
-          Venez participer ! »
-        </a>
-      </p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">
+        <img alt="Brand" class="brand-img">
+      </a>
     </div>
 
-    <div class="row">
-      <div id="menu" class="col-md-3">
-        <h3>Les annonces</h3>
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="{{ path('ml_platform_home') }}">Accueil</a></li>
-          <li><a href="{{ path('ml_platform_add') }}">Ajouter une annonce</a></li>
-        </ul>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bien-être / Santé <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Santé</a></li>
+            <li><a href="#">Alimentation</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Maison & Bricolage</a></li>
+            <li><a href="#">Jardinage</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Sport</a></li>
+            <li><a href="#">Mode et vêtements</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Recettes <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Boutique</a></li>
 
-        <h4>Dernières annonces</h4>
-        {{ render(controller("MLPlatformBundle:Advert:menu", {'limit': 3})) }}
-      </div>
-      <div id="content" class="col-md-9">
-        {% block body %}
-        {% endblock %}
-      </div>
-    </div>
+      </ul>
+      
+      {#}
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Rechercher">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    #}
 
-    <hr>
+{#       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul> #}
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-    <footer>
-      <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
-    </footer>
-  </div>
+        {% block body %}{% endblock %}
 
-  {% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  {% endblock %}
 
-</body>
+    </body>
+
+
+
+    <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script>
+
+
+    $(function() {
+      $(function() {
+        $('.dropdown').hover(function() {
+         $(this).children('ul').stop(true, false, true).fadeToggle(400);
+        });
+      });
+    });
+
+
+    </script>
+
+
+
 </html>
