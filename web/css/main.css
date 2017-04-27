@@ -12,6 +12,12 @@ ul.nav.navbar-nav li a {
 	color: #FFFFFF;
 }
 
+/*Navbar font color for visited links*/
+ul.nav li a:visited {
+    color: #FFFFFF;
+}
+
+/*
 /*Navbar Dropdown menu font color*/
 .navbar-default .navbar-nav .dropdown-menu li a {
     color:#529751;
