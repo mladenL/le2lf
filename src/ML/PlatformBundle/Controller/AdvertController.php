@@ -95,8 +95,16 @@ public function addAction(Request $request) {
 	  return $this->redirectToRoute('ml_platform_view', array('id' => 5));
 	}
 
-	  // Si on n'est pas en POST, alors on affiche le formulaire
-	  return $this->render('MLPlatformBundle:Advert:add.html.twig');
+    $advert = array(
+      'title'   => 'Recherche patates douces',
+      'id'      => 1,
+      'author'  => 'Alexandre',
+      'content' => 'Qui a des patates douces pour changer ? Merci.',
+      'date'    => new \Datetime()
+    );
+
+	return $this->render('MLPlatformBundle:Advert:add.html.twig', array(
+      'advert' => $advert));
 }
 
 public function editAction($id, Request $request) {

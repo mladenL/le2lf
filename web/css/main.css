@@ -77,3 +77,11 @@ div.col-md-8 {
 	margin-left: 0px;
 	border: 1px grey solid;
 }
+
+div .pub-cocon div .row {
+	background-color: #FFFFFF;
+	border: solid 1px grey;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+}
