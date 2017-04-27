@@ -13,7 +13,7 @@ ul.nav.navbar-nav li a {
 }
 
 /*Navbar font color for visited links*/
-ul.nav li a:visited {
+ul.nav.navbar-nav li a:visited {
     color: #FFFFFF;
 }
 
@@ -23,18 +23,26 @@ ul.nav li a:visited {
     color:#529751;
   }
 
- /*Navbar Dropdown menu font color*/
-ul.nav.navbar-nav li a:hover {
-    color:#FFFFFF;
-    background-color: #7FBE62;
-  }
-
 /*Navbar background color*/
 .navbar-default {
 	background-color: #529751;
 	border: none;
 	border-radius: 0px;
 }
+
+.dropdown-menu a{
+    color: #529751 !important;
+}
+
+.dropdown-menu a:hover {
+    color: #FFFFFF !important;
+}
+
+ /*Navbar Dropdown menu font color*/
+ul.nav.navbar-nav li a:hover {
+    color:#FFFFFF;
+    background-color: #7FBE62;
+  }
 
 /*Navbar logo fit in navbar*/
 .navbar-brand {

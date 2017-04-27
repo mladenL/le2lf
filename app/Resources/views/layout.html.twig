@@ -10,10 +10,12 @@
 
 
     {# On charge le CSS de bootstrap depuis le site directement #}
+  {% block style %}
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/maps.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  {% endblock %}
 
 
 </head>
@@ -84,24 +86,33 @@
 
 
   <!--Google Maps DOM element-->
-  <div id="map" class="jumbotron">{% block map %}{% endblock %}</div>
-
-    <div class="row">
-      <div id="menu" class="col-md-3">
-        <h3>Les annonces</h3>
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="{{ path('ml_platform_home') }}">Accueil</a></li>
-          <li><a href="{{ path('ml_platform_add') }}">Ajouter une annonce</a></li>
-        </ul>
-
-        <h4>Dernières annonces</h4>
-        {{ render(controller("MLPlatformBundle:Advert:menu", {'limit': 3})) }}
-      </div>
-      <div id="content" class="col-md-9">
-        {% block body %}
-        {% endblock %}
-      </div>
+<div class="container">
+  <div class="row">
+    <div id="map" class="col-md-12">
+      {% block map %}{% endblock %}
     </div>
+  </div>
+
+  <div class="row">
+    <div id="menu" class="col-md-3">
+      <h3>Les annonces</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="{{ path('ml_platform_home') }}">Accueil</a></li>
+        <li><a href="{{ path('ml_platform_add') }}">Ajouter une annonce</a></li>
+      </ul>
+
+      <h4>Dernières annonces</h4>
+      {{ render(controller("MLPlatformBundle:Advert:menu", {'limit': 3})) }}
+
+    </div>
+
+
+    <div id="content" class="col-md-9">
+      {% block body %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
 
     <hr>
 
@@ -110,14 +121,13 @@
     </footer>
   </div>
 
+
+</body>
+
   {% block javascripts %}
     {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  {% endblock %}
-
-</body>
-
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
     <script>
 
@@ -129,7 +139,26 @@
         });
       });
     });
+    </script>
 
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!--Google Map Script-->
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 48, lng: 2},
+          zoom: 2,
+          mapTypeId: 'satellite'
+        });
+      }
 
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXuwsvP_5JVA6fogMEKKPxB4NOf3ZaFOk&callback=initMap"
+    async defer></script>
+
+{% endblock %}
 </html>

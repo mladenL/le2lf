@@ -1,10 +1,13 @@
 {# src/ML/PlatformBundle/Resources/view/Advert/view.html.twig #}
 
-{% extends "MLPlatformBundle::layout.html.twig" %}
+{% extends ['MLPlatformBundle::layout.html.twig', 'MLPlatformBundle::index.html.twig'] %}
+
 
 {% block title %}
   Lecture d'une annonce - {{ parent() }}
 {% endblock %}
+
+    {% block map %}{% endblock %}
 
 {% block mlplatform_body %}
 

@@ -1,10 +1,14 @@
 {# src/ML/PlatformBundle/Resources/views/Advert/edit.html.twig #}
 
-{% extends "MLPlatformBundle::layout.html.twig" %}
+{% extends ['MLPlatformBundle::layout.html.twig', 'MLPlatformBundle::index.html.twig'] %}
+
+{% block style %}{% endblock %}
 
 {% block title %}
   Ajouter une annonce - {{ parent() }}
 {% endblock %}
+
+    {% block map %}{% endblock %}
 
 {% block mlplatform_body %}
 
@@ -25,3 +29,4 @@
   </p>
 
 {% endblock %}
+

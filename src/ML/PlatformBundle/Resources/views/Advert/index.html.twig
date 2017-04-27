@@ -19,7 +19,7 @@ Inscrivez-vous pour faire partie du réseau d'échange et de dons de fruits, lé
   Accueil - {{ parent() }}
 {% endblock %}
 
-    {% block map %}{% endblock %}
+    
 
 {% block mlplatform_body %}
 
@@ -40,23 +40,3 @@ Inscrivez-vous pour faire partie du réseau d'échange et de dons de fruits, lé
   </ul>
 
 {% endblock %}
-
-  {% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-<!--Google Map Script-->
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 48, lng: 2},
-          zoom: 2,
-          mapTypeId: 'satellite'
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXuwsvP_5JVA6fogMEKKPxB4NOf3ZaFOk&callback=initMap"
-    async defer></script>
-    {% endblock %}
